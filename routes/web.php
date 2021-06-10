@@ -18,13 +18,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/teams', function () {
+/*Route::get('/teams', function () {
     return view('teams');
-});
+});*/
 
 Route::get('/dashboard', function () {
     return view('layout');
-})->middleware(['auth'])->name('layaout');
+})->middleware(['auth'])->name('layout');
+
+Route::get('/teams', [App\Http\Controllers\TeamController::class, 'index'])->name('teams.index');
 
 require __DIR__.'/auth.php';
 

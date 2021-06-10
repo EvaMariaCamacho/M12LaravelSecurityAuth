@@ -16,4 +16,13 @@ class Team extends Model
         return $this->belongsTo(Result::class);
     }
 
+
+    protected $fillable = ['stadium', 'foundation_year', 'city'];
+
+
+
+
+
+
+
 }

@@ -17,7 +17,7 @@
                      @if (Route::has('login'))
                      <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                          @auth
-                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Bienvenido {{ auth()->user()->name }}</a>
+                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Bienvenid@ {{ auth()->user()->name }}</a>
                          <form method="POST" action="{{ route('logout') }}"><br>
                              @csrf
 
@@ -64,8 +64,8 @@
                                      </ul>-->
                                  </li>
                                  <li class="nav-item">
-                                     <a href="{{ url ('/teams') }}" class="nav-link">
-                                         <i class="nav-icon fas fa-th"></i>
+                                     <a href="{{ route('teams.index') }}" class="nav-link">
+                                         <i class="nav-icon fas fa-users-cog"></i>
                                          <p>
                                              Teams
                                              <span class="right badge badge-danger"></span>
@@ -74,7 +74,7 @@
                                  </li>
                                  <li class="nav-item">
                                      <a href="#" class="nav-link">
-                                         <i class="nav-icon fas fa-th"></i>
+                                         <i class="nav-icon far fa-calendar-alt"></i>
                                          <p>
                                              Results
                                              <span class="right badge badge-danger"></span>
@@ -89,21 +89,7 @@
                      <!-- Content Wrapper. Contains page content -->
                      <div class="content-wrapper">
                          <!-- Content Header (Page header) -->
-                         <div class="content-header">
-                             <div class="container-fluid">
-                                 <div class="row mb-2">
-                                     <div class="col-sm-6">
-                                         <h1 class="m-0">Starter Page</h1>
-                                     </div><!-- /.col -->
-                                     <div class="col-sm-6">
-                                         <ol class="breadcrumb float-sm-right">
-                                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                             <li class="breadcrumb-item active">Starter Page</li>
-                                         </ol>
-                                     </div><!-- /.col -->
-                                 </div><!-- /.row -->
-                             </div><!-- /.container-fluid -->
-                         </div>
+                        @yield('header')
 
                          @else
                          <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
@@ -119,22 +105,7 @@
          </div>
  </aside>
 
- <div class="content">
-     <div class="container-fluid">
-         <div class="row mb-2">
-             <div class="col-sm-6">
 
-             </div><!-- /.col -->
-             <div class="col-sm-6">
-                 <h1 class="m-0">Starter Page</h1>
-                 <ol class="breadcrumb float-sm-right">
-                     <li class="breadcrumb-item"><a href="{{ route('layaout') }}">Inicio</a></li>
-                     <li class="breadcrumb-item active">Starter Page</li>
-                 </ol>
-             </div><!-- /.col -->
-         </div><!-- /.row -->
-     </div><!-- /.container-fluid -->
- </div>
  <!-- /.content-header -->
  <!-- SidebarSearch Form -->
 
