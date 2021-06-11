@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
+/**
+ * Class TeamController
+ * @package App\Http\Controllers
+ */
 class TeamController extends Controller
 {
     /**
@@ -14,8 +18,10 @@ class TeamController extends Controller
      */
     public function index()
     {
-        
-       return view('teams.index');
+        $teams = Team::paginate();
+
+        return view('team.index', compact('teams'))
+            ->with('i', (request()->input('page', 1) - 1) * $teams->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        $team = new Team();
+        return view('team.create', compact('team'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Team::$rules);
+
+        $teams = Team::create($request->all());
+
+        return redirect()->route('team.index')
+            ->with('success', 'Team created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show($id)
     {
-        //
+        $team = Team::find($id);
+
+        return view('team.show', compact('team'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Team  $team
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team)
+    public function edit($id)
     {
-        //
+        $team = Team::find($id);
+
+        return view('team.edit', compact('team'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Team  $team
+     * @param  \Illuminate\Http\Request $request
+     * @param  Team $team
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Team $team)
     {
-        //
+        request()->validate(Team::$rules);
+
+        $team->update($request->all());
+
+        return redirect()->route('team.index')
+            ->with('success', 'Team updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Team  $team
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Team $team)
+    public function destroy($id)
     {
-        //
+        $teams = Team::find($id)->delete();
+
+        return redirect()->route('team.index')
+            ->with('success', 'Team deleted successfully');
     }
 }

@@ -13,20 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+//Route::get('/', function () {return view('layout');});
 
 
 /*Route::get('/teams', function () {
     return view('teams');
 });*/
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('layout');
 })->middleware(['auth'])->name('layout');
 
-Route::get('/teams', [App\Http\Controllers\TeamController::class, 'index'])->name('teams.index');
+Route::resource('/team', App\Http\Controllers\TeamController::class);
 
 require __DIR__.'/auth.php';
 

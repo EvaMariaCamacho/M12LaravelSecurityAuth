@@ -2,25 +2,43 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Team
+ *
+ * @property $id
+ * @property $stadium
+ * @property $fundation_year
+ * @property $city
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Team extends Model
 {
-    use HasFactory;
+    
+    static $rules = [
+		'stadium' => 'required',
+		'fundation_year' => 'required',
+		'city' => 'required',
+    ];
 
-    public function result()
-    {
+    protected $perPage = 20;
 
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['stadium','fundation_year','city'];
 
-        return $this->belongsTo(Result::class);
-    }
-
-
-    protected $fillable = ['stadium', 'foundation_year', 'city'];
-
-
-
+  public function result()
+  {
+    return $this->belongsTo(Result::class);
+  }
 
 
 

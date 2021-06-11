@@ -64,7 +64,7 @@
                                      </ul>-->
                                  </li>
                                  <li class="nav-item">
-                                     <a href="{{ route('teams.index') }}" class="nav-link">
+                                     <a href=" {{ route('team.index') }}" class="nav-link">
                                          <i class="nav-icon fas fa-users-cog"></i>
                                          <p>
                                              Teams
