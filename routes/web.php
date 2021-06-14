@@ -24,7 +24,9 @@ Route::get('/', function () {
     return view('layout');
 })->middleware(['auth'])->name('layout');
 
-Route::resource('/team', App\Http\Controllers\TeamController::class);
+Route::resource('team', App\Http\Controllers\TeamController::class);
+
+Route::resource('result', App\Http\Controllers\ResultController::class);
 
 require __DIR__.'/auth.php';
 

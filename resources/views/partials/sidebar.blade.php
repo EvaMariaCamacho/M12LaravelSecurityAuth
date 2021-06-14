@@ -73,7 +73,7 @@
                                      </a>
                                  </li>
                                  <li class="nav-item">
-                                     <a href="#" class="nav-link">
+                                     <a href="{{ route('result.index') }}" class="nav-link">
                                          <i class="nav-icon far fa-calendar-alt"></i>
                                          <p>
                                              Results
@@ -89,7 +89,7 @@
                      <!-- Content Wrapper. Contains page content -->
                      <div class="content-wrapper">
                          <!-- Content Header (Page header) -->
-                        @yield('header')
+                         @yield('header')
 
                          @else
                          <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
