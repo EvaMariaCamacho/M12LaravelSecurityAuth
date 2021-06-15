@@ -20,12 +20,13 @@
                                 <span id="card_title">
                                     {{ __('Team') }}
                                 </span>
-
+                            @can('team-admin')
                                 <div class="float-right">
                                     <a href="{{ route('team.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
                                         {{ __('Create New') }}
                                     </a>
                                 </div>
+                            @endcan
                             </div>
                         </div>
                         @if ($message = Session::get('success'))
@@ -57,7 +58,7 @@
                                             <td>{{ $team->fundation_year }}</td>
                                             <td>{{ $team->city }}</td>
                                             <td>{{ $team->results_id }}</td>
-
+                                        @can('team-admin')
                                             <td>
                                                 <form action="{{ route('team.destroy',$team->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('team.show',$team->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
@@ -67,6 +68,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
+                                        @endcan
                                         </tr>
                                         @endforeach
                                     </tbody>
