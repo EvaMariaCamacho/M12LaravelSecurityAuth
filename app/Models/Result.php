@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Team;
 
 /**
  * Class Result
@@ -37,6 +38,9 @@ class Result extends Model
      */
     protected $fillable = ['local_gol','visitor_gol','date','teams_id'];
 
-
+  public function team()
+  {
+    return $this->belongsTo(Team::class);
+  }
 
 }

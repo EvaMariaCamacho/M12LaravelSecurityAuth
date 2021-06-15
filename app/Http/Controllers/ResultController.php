@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Result;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class ResultController
@@ -31,6 +32,8 @@ class ResultController extends Controller
      */
     public function create()
     {
+     $this->authorize('create-result');
+
         $result = new Result();
         return view('result.create', compact('result'));
     }

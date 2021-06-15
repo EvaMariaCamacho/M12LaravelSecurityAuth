@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Access\Gate;
 
 /**
  * Class TeamController
@@ -18,6 +19,7 @@ class TeamController extends Controller
      */
     public function index()
     {
+        
         $teams = Team::paginate();
 
         return view('team.index', compact('teams'))
@@ -31,6 +33,7 @@ class TeamController extends Controller
      */
     public function create()
     {
+
         $team = new Team();
         return view('team.create', compact('team'));
     }

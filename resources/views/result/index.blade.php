@@ -11,7 +11,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Listados de los Equipos</h1><br>
-                </div>s
+                </div>
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
@@ -20,12 +20,13 @@
                                 <span id="card_title">
                                     {{ __('Result') }}
                                 </span>
-
+                                @can('result-admin')
                                 <div class="float-right">
                                     <a href="{{ route('result.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
                                         {{ __('Create New') }}
                                     </a>
                                 </div>
+                                @endcan
                             </div>
                         </div>
                         @if ($message = Session::get('success'))
@@ -61,11 +62,17 @@
 
                                             <td>
                                                 <form action="{{ route('result.destroy',$result->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('team.index',$result->teams_id) }}"><i class="fa fa-fw fa-eye"></i> Teams</a>
+
+                                                    @can('result-admin')
                                                     <a class="btn btn-sm btn-primary " href="{{ route('result.show',$result->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('result.edit',$result->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('result-admin')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use app\Models\Result;
+use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 
 /**
  * Class Team
@@ -37,10 +40,8 @@ class Team extends Model
 
   public function result()
   {
-    return $this->belongsTo(Result::class);
+    return $this->hasMany(Result::class);
   }
 
-
-
-
+  
 }
