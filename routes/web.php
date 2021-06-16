@@ -31,3 +31,5 @@ Route::resource('result', App\Http\Controllers\ResultController::class);
 require __DIR__.'/auth.php';
 
 
+Route::get('/cookie/set', [App\Http\Controllers\CookieController::class, 'setCookie']);
+Route::get('/cookie/get', [App\Http\Controllers\CookieController::class, 'getCookie']);

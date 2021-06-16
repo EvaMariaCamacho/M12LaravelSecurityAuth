@@ -63,7 +63,6 @@
                                             <td>
                                                 <form action="{{ route('result.destroy',$result->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('team.index',$result->teams_id) }}"><i class="fa fa-fw fa-eye"></i> Teams</a>
-
                                                     @can('result-admin')
                                                     <a class="btn btn-sm btn-primary " href="{{ route('result.show',$result->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('result.edit',$result->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
