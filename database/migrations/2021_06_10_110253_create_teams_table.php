@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->timestamp('fundation_year');
             $table->string('city', 45);
             $table->unsignedBigInteger('results_id')->nullable();
+            $table->foreign('result_id')->references('id')->on('result')->onDelete('set null');
             $table->timestamps();
         });
     }
