@@ -32,7 +32,6 @@ class ResultController extends Controller
      */
     public function create()
     {
-     $this->authorize('create-result');
 
         $result = new Result();
         return view('result.create', compact('result'));
@@ -50,7 +49,7 @@ class ResultController extends Controller
 
         $result = Result::create($request->all());
 
-        return redirect()->route('results.index')
+        return redirect()->route('result.index')
             ->with('success', 'Result created successfully.');
     }
 
@@ -93,7 +92,7 @@ class ResultController extends Controller
 
         $result->update($request->all());
 
-        return redirect()->route('results.index')
+        return redirect()->route('result.index')
             ->with('success', 'Result updated successfully');
     }
 
@@ -106,7 +105,7 @@ class ResultController extends Controller
     {
         $result = Result::find($id)->delete();
 
-        return redirect()->route('results.index')
+        return redirect()->route('result.index')
             ->with('success', 'Result deleted successfully');
     }
 }

@@ -18,7 +18,8 @@ class CreateResultsTable extends Migration
             $table->string('local_gol', 45);
             $table->string('visitor_gol', 45);
             $table->timestamp('date');
-            $table->unsignedBigInteger('teams_id');
+            $table->unsignedBigInteger('teams_id')->nullable();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('set null');
             $table->timestamps();
         });
     }

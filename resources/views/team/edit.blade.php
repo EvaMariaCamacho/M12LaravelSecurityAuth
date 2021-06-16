@@ -1,9 +1,3 @@
-@include('partials.head')
-
-@include('partials.nav')
-
-@include('partials.sidebar')
-
 <section class="content container-fluid">
     <div class="">
         <div class="col-md-12">
@@ -27,4 +21,3 @@
         </div>
     </div>
 </section>
-@include('partials.footer')

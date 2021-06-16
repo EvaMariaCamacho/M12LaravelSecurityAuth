@@ -1,8 +1,3 @@
-@include('partials.head')
-
-@include('partials.nav')
-
-@include('partials.sidebar')
 
 <section class="content container-fluid">
     <div class="row">
@@ -26,5 +21,3 @@
         </div>
     </div>
 </section>
-
-@include('partials.footer')
