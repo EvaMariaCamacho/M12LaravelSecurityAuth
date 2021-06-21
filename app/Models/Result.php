@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use app\Models\Team;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Result
@@ -21,7 +22,8 @@ use app\Models\Team;
  */
 class Result extends Model
 {
-    
+  use HasFactory;
+  
     static $rules = [
 		'local_gol' => 'required',
 		'visitor_gol' => 'required',

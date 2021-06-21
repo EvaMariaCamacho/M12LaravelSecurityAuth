@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use app\Models\Result;
 use App\Models\User;
 use Illuminate\Auth\Access\Gate;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Team
@@ -22,7 +23,9 @@ use Illuminate\Auth\Access\Gate;
  */
 class Team extends Model
 {
-    
+
+  use HasFactory;
+
     static $rules = [
 		'stadium' => 'required',
 		'fundation_year' => 'required',
@@ -36,7 +39,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $fillable = ['stadium','fundation_year','city'];
+    protected $fillable = ['stadium','fundation_year','city', 'results_id'];
 
   public function result()
   {
