@@ -79,7 +79,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('layout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('layout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
