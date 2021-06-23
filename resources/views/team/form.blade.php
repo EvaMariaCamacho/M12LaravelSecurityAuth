@@ -16,11 +16,11 @@
                     {{ Form::text('city', $team->city, ['class' => 'form-control' . ($errors->has('city') ? ' is-invalid' : ''), 'placeholder' => 'City']) }}
                     {!! $errors->first('city', '<div class="invalid-feedback">:message</p>') !!}
                     </div>
-                    <div class="form-group">
+                   <!-- <div class="form-group">
                         {{ Form::label('results_id') }}
                         {{ Form::text('results_id', $team->results_id, ['class' => 'form-control' . ($errors->has('results_id') ? ' is-invalid' : ''), 'placeholder' => 'results_id']) }}
                         {!! $errors->first('results_id', '<div class="invalid-feedback">:message</p>') !!}
-                        </div>
+                        </div>-->
 
                     </div>
                     <div class="box-footer mt20">

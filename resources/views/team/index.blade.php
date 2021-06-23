@@ -44,7 +44,6 @@
                                             <th>Stadium</th>
                                             <th>Fundation Year</th>
                                             <th>City</th>
-                                            <th>Result</th>
 
                                             <th></th>
                                         </tr>
@@ -57,7 +56,6 @@
                                             <td>{{ $team->stadium }}</td>
                                             <td>{{ $team->fundation_year }}</td>
                                             <td>{{ $team->city }}</td>
-                                            <td>{{ $team->results_id }}</td>
                                         @can('team-admin')
                                             <td>
                                                 <form action="{{ route('team.destroy',$team->id) }}" method="POST">
